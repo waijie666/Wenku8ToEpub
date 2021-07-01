@@ -618,7 +618,7 @@ lock = threading.Lock()
 
 if __name__ == '__main__':
     wk = Wenku8ToEpub()
-    wk.get_book(1614)
+    #wk.get_book(1143)
     # wk.get_book(1016)
     # wk.get_book(1447)
     # print(wk.bookinfo(1))
@@ -627,7 +627,7 @@ if __name__ == '__main__':
     # print(wk.search('东云'))
     # print(wk.search('入间人间'))
     # print(wk.get_book_no_copyright(1614))
-    exit()
+    #exit()
 
     opts, args = getopt.getopt(sys.argv[1:], '-h-t-m-b-i', [])
     _fetch_image = True
@@ -658,9 +658,11 @@ if __name__ == '__main__':
 
     for _id in args:
         wk = Wenku8ToEpub()
+        """
         _bookinfo = wk.bookinfo(_id)
         print('信息：ID:%s\t书名:%s\t作者:%s' % (_bookinfo['id'], _bookinfo['name'], _bookinfo['author']))
         print('简介：\n%s' % _bookinfo['brief'])
+        """
         res = wk.get_book(_id, fetch_image=_fetch_image, multiple=_multiple, bin_mode=_bin_mode)
         if _bin_mode is True:
             print(res)
